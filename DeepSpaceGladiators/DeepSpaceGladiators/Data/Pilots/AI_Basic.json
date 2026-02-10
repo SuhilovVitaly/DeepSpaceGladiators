@@ -1,6 +1,1 @@
-{
-  "id": "AI_Basic",
-  "name": "AI Basic",
-  "staminaMax": 6,
-  "description": "Basic AI opponent pilot."
-}
+{"id":"AI_Basic","name":"AI Basic","rank":1,"staminaMax":6,"description":"Basic AI opponent pilot."}

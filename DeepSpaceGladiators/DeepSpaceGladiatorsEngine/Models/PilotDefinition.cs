@@ -13,6 +13,10 @@ public class PilotDefinition
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
+    /// <summary>Pilot rank (1–8).</summary>
+    [JsonPropertyName("rank")]
+    public PilotRank Rank { get; set; }
+
     /// <summary>Maximum stamina for playing cards.</summary>
     [JsonPropertyName("staminaMax")]
     public int StaminaMax { get; set; }
@@ -27,6 +31,7 @@ public class PilotDefinition
         return new Pilot
         {
             Name = Name,
+            Rank = Rank,
             StaminaMax = StaminaMax,
             StaminaCurrent = StaminaMax
         };

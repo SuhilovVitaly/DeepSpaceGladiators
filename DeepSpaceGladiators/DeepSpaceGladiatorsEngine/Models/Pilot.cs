@@ -6,6 +6,9 @@ public class Pilot
     /// <summary>Display name (loaded from pilot definition).</summary>
     public string Name { get; set; } = string.Empty;
 
+    /// <summary>Pilot rank (level).</summary>
+    public PilotRank Rank { get; set; }
+
     /// <summary>Maximum stamina (from GameConstants.StaminaMax).</summary>
     public int StaminaMax { get; set; }
 

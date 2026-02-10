@@ -1,6 +1,1 @@
-{
-  "id": "Tara",
-  "name": "Tara",
-  "staminaMax": 6,
-  "description": "Player pilot."
-}
+{"id":"Tara","name":"Tara","rank":1,"staminaMax":6,"description":"Player pilot."}
