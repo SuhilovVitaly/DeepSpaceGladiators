@@ -1,11 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-
 namespace DeepSpaceGladiators.UI.Screens
 {
     public partial class ScreenGameBoard : Form
@@ -13,6 +5,21 @@ namespace DeepSpaceGladiators.UI.Screens
         public ScreenGameBoard()
         {
             InitializeComponent();
+            KeyDown += ScreenGameBoard_KeyDown;
+        }
+
+        private void ScreenGameBoard_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                e.Handled = true;
+                using var gameMenu = new ScreenGameMenu();
+                if (gameMenu.ShowDialog(this) == DialogResult.Yes)
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+            }
         }
     }
 }

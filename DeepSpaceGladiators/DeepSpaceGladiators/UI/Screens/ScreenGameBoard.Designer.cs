@@ -38,6 +38,7 @@ namespace DeepSpaceGladiators.UI.Screens
             ClientSize = new Size(1523, 897);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            KeyPreview = true;
             Name = "ScreenGameBoard";
             ShowInTaskbar = false;
             Text = "ScreenGameBoard";

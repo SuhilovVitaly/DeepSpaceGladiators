@@ -60,11 +60,11 @@ namespace DeepSpaceGladiators.UI.Screens
             ButtonNewGame.FlatStyle = FlatStyle.Flat;
             ButtonNewGame.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ButtonNewGame.ForeColor = Color.Black;
-            ButtonNewGame.Location = new Point(274, 82);
+            ButtonNewGame.Location = new Point(274, 75);
             ButtonNewGame.Name = "ButtonNewGame";
             ButtonNewGame.Size = new Size(233, 65);
             ButtonNewGame.TabIndex = 0;
-            ButtonNewGame.Text = "EXIT";
+            ButtonNewGame.Text = "NEW GAME";
             ButtonNewGame.UseVisualStyleBackColor = false;
             ButtonNewGame.Click += Event_NewGame;
             // 
