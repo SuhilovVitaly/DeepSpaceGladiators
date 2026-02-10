@@ -1,0 +1,6 @@
+{
+  "id": "AI_Basic",
+  "name": "AI Basic",
+  "staminaMax": 6,
+  "description": "Basic AI opponent pilot."
+}

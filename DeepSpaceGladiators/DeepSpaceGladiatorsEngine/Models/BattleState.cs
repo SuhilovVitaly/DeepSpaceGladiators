@@ -1,3 +1,5 @@
+using DeepSpaceGladiatorsEngine;
+
 namespace DeepSpaceGladiatorsEngine.Models;
 
 /// <summary>Full battle state: sides (ship + pilot each), phase, turn number, winner, and current turn (hands, planned cards).</summary>
@@ -30,13 +32,16 @@ public class BattleState
     /// <summary>Get pilot for the given side.</summary>
     public Pilot GetPilot(Side side) => GetSide(side).Pilot;
 
-    /// <summary>Creates a default battle state: player Duelist vs opponent Bruiser, turn 1, Planning phase.</summary>
+    /// <summary>Creates a default battle state: player (Tara, Duelist) vs opponent (AI_Basic, Bruiser), turn 1, Planning phase. Loads pilots from Data/Pilots.</summary>
     public static BattleState CreateDefault()
     {
+        var pilotsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Pilots");
+        var playerPilot = PilotLoader.LoadFromFile(Path.Combine(pilotsDir, "Tara.json"));
+        var opponentPilot = PilotLoader.LoadFromFile(Path.Combine(pilotsDir, "AI_Basic.json"));
         return new BattleState
         {
-            Player = SideState.Create(ShipTemplateId.Duelist),
-            Opponent = SideState.Create(ShipTemplateId.Bruiser),
+            Player = SideState.Create(ShipTemplateId.Duelist, playerPilot),
+            Opponent = SideState.Create(ShipTemplateId.Bruiser, opponentPilot),
             CurrentTurnNumber = 1,
             Phase = BattlePhase.Planning
         };

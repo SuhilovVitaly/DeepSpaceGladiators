@@ -9,13 +9,23 @@ public class SideState
     /// <summary>Pilot (stamina for playing cards).</summary>
     public Pilot Pilot { get; set; } = null!;
 
-    /// <summary>Creates a side with ship from template and full stamina pilot.</summary>
+    /// <summary>Creates a side with ship from template and default pilot (full stamina).</summary>
     public static SideState Create(ShipTemplateId shipTemplateId)
     {
         return new SideState
         {
             Ship = ShipTemplate.CreateShip(shipTemplateId),
             Pilot = new Pilot { StaminaMax = GameConstants.StaminaMax, StaminaCurrent = GameConstants.StaminaMax }
+        };
+    }
+
+    /// <summary>Creates a side with ship from template and the given pilot.</summary>
+    public static SideState Create(ShipTemplateId shipTemplateId, Pilot pilot)
+    {
+        return new SideState
+        {
+            Ship = ShipTemplate.CreateShip(shipTemplateId),
+            Pilot = pilot ?? throw new ArgumentNullException(nameof(pilot))
         };
     }
 }
