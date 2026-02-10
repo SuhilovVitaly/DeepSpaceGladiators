@@ -35,12 +35,15 @@ namespace DeepSpaceGladiators.UI.Screens
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DimGray;
-            ClientSize = new Size(1523, 897);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             KeyPreview = true;
+            MaximizeBox = false;
+            MinimumSize = new Size(800, 600);
             Name = "ScreenGameBoard";
             ShowInTaskbar = false;
+            Size = new Size(1920, 1080);
+            StartPosition = FormStartPosition.Manual;
             Text = "ScreenGameBoard";
             ResumeLayout(false);
         }

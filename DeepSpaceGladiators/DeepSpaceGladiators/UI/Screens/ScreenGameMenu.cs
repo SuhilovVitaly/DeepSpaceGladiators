@@ -10,6 +10,11 @@ namespace DeepSpaceGladiators.UI.Screens
         private void Event_ExitToMenu(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Yes;
+            if (Owner is Form owner)
+            {
+                owner.DialogResult = DialogResult.OK;
+                owner.Close();
+            }
             Close();
         }
 

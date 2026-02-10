@@ -19,8 +19,9 @@ namespace DeepSpaceGladiators
                     break;
 
                 using var gameBoard = new ScreenGameBoard();
+                gameBoard.FormBorderStyle = FormBorderStyle.None;
                 gameBoard.StartPosition = FormStartPosition.Manual;
-                gameBoard.Bounds = RectangleToScreen(ClientRectangle);
+                gameBoard.Bounds = Screen.PrimaryScreen!.Bounds;
                 if (gameBoard.ShowDialog(this) != DialogResult.OK)
                     break;
             }

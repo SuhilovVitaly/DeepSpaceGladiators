@@ -32,6 +32,8 @@
             PilotStaminaLabel = new Label();
             PilotStaminaValue = new Label();
             PilotRank = new Label();
+            PilotPortrait = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)PilotPortrait).BeginInit();
             SuspendLayout();
             // 
             // PilotName
@@ -75,16 +77,26 @@
             PilotRank.Text = "Rank";
             PilotRank.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // PilotPortrait
+            // 
+            PilotPortrait.Location = new Point(14, 72);
+            PilotPortrait.Name = "PilotPortrait";
+            PilotPortrait.Size = new Size(125, 155);
+            PilotPortrait.TabIndex = 4;
+            PilotPortrait.TabStop = false;
+            // 
             // ControlPilot
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(PilotPortrait);
             Controls.Add(PilotRank);
             Controls.Add(PilotStaminaValue);
             Controls.Add(PilotStaminaLabel);
             Controls.Add(PilotName);
             Name = "ControlPilot";
             Size = new Size(273, 244);
+            ((System.ComponentModel.ISupportInitialize)PilotPortrait).EndInit();
             ResumeLayout(false);
         }
 
@@ -94,5 +106,6 @@
         private Label PilotStaminaLabel;
         private Label PilotStaminaValue;
         private Label PilotRank;
+        private PictureBox PilotPortrait;
     }
 }

@@ -14,7 +14,13 @@ namespace DeepSpaceGladiators.UI.Screens
         {
             BattleState = battleState ?? throw new ArgumentNullException(nameof(battleState));
             InitializeComponent();
+            Load += ScreenGameBoard_Load;
             KeyDown += ScreenGameBoard_KeyDown;
+        }
+
+        private void ScreenGameBoard_Load(object? sender, EventArgs e)
+        {
+            Bounds = Screen.PrimaryScreen!.Bounds;
         }
 
         private void ScreenGameBoard_KeyDown(object? sender, KeyEventArgs e)

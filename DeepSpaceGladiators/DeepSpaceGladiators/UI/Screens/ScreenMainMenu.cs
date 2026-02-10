@@ -12,7 +12,7 @@ namespace DeepSpaceGladiators.UI.Screens
         private void Event_ExitGame(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            Close();
+            Application.Exit();
         }
 
         private void Event_NewGame(object sender, EventArgs e)
