@@ -1,4 +1,4 @@
-﻿namespace DeepSpaceGladiators.UI.Controls
+namespace DeepSpaceGladiators.UI.Controls
 {
     partial class ControlPilot
     {
@@ -82,6 +82,7 @@
             PilotPortrait.Location = new Point(14, 72);
             PilotPortrait.Name = "PilotPortrait";
             PilotPortrait.Size = new Size(125, 155);
+            PilotPortrait.SizeMode = PictureBoxSizeMode.Zoom;
             PilotPortrait.TabIndex = 4;
             PilotPortrait.TabStop = false;
             // 

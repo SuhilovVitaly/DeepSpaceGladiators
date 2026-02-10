@@ -28,13 +28,35 @@ namespace DeepSpaceGladiators.UI.Screens
         /// </summary>
         private void InitializeComponent()
         {
+            PlayerPilot = new DeepSpaceGladiators.UI.Controls.ControlPilot();
+            ComputerPilot = new DeepSpaceGladiators.UI.Controls.ControlPilot();
             SuspendLayout();
+            // 
+            // PlayerPilot
+            // 
+            PlayerPilot.BackColor = Color.WhiteSmoke;
+            PlayerPilot.Location = new Point(12, 12);
+            PlayerPilot.Name = "PlayerPilot";
+            PlayerPilot.Size = new Size(341, 305);
+            PlayerPilot.TabIndex = 0;
+            // 
+            // ComputerPilot
+            // 
+            ComputerPilot.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ComputerPilot.BackColor = Color.WhiteSmoke;
+            ComputerPilot.Location = new Point(1567, 12);
+            ComputerPilot.Name = "ComputerPilot";
+            ComputerPilot.Size = new Size(341, 305);
+            ComputerPilot.TabIndex = 1;
             // 
             // ScreenGameBoard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DimGray;
+            BackColor = Color.Black;
+            ClientSize = new Size(1920, 1080);
+            Controls.Add(ComputerPilot);
+            Controls.Add(PlayerPilot);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             KeyPreview = true;
@@ -42,12 +64,14 @@ namespace DeepSpaceGladiators.UI.Screens
             MinimumSize = new Size(800, 600);
             Name = "ScreenGameBoard";
             ShowInTaskbar = false;
-            Size = new Size(1920, 1080);
             StartPosition = FormStartPosition.Manual;
             Text = "ScreenGameBoard";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Controls.ControlPilot PlayerPilot;
+        private Controls.ControlPilot ComputerPilot;
     }
 }

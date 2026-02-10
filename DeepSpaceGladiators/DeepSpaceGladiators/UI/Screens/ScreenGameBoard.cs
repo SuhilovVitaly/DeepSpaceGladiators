@@ -21,6 +21,8 @@ namespace DeepSpaceGladiators.UI.Screens
         private void ScreenGameBoard_Load(object? sender, EventArgs e)
         {
             Bounds = Screen.PrimaryScreen!.Bounds;
+            PlayerPilot.Bind(BattleState.Player.Pilot);
+            ComputerPilot.Bind(BattleState.Opponent.Pilot);
         }
 
         private void ScreenGameBoard_KeyDown(object? sender, KeyEventArgs e)
