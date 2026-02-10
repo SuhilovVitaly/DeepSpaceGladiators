@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DeepSpaceGladiatorsEngine\DeepSpaceGladiatorsEngine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="UI\Screens\ScreenGameMenu.cs">
       <SubType>Form</SubType>
     </Compile>
