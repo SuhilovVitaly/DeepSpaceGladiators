@@ -32,12 +32,12 @@ public class BattleState
     /// <summary>Get pilot for the given side.</summary>
     public Pilot GetPilot(Side side) => GetSide(side).Pilot;
 
-    /// <summary>Creates a default battle state: player (Tara, Duelist) vs opponent (AI_Basic, Bruiser), turn 1, Planning phase. Loads pilots from Data/Pilots.</summary>
+    /// <summary>Creates a default battle state: player (Tara, Duelist) vs opponent (AI_Basic, Bruiser), turn 1, Planning phase. Loads pilots via PilotLoader (Data/Pilots, portraits from Data/Pilots/Portraits).</summary>
     public static BattleState CreateDefault()
     {
-        var pilotsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Pilots");
-        var playerPilot = PilotLoader.LoadFromFile(Path.Combine(pilotsDir, "Tara.json"));
-        var opponentPilot = PilotLoader.LoadFromFile(Path.Combine(pilotsDir, "AI_Basic.json"));
+        var playerPilot = PilotLoader.LoadFromFile("Tara.json", isPlayer: true);
+        var opponentPilot = PilotLoader.LoadFromFile("AI_Basic.json", isPlayer: false);
+
         return new BattleState
         {
             Player = SideState.Create(ShipTemplateId.Duelist, playerPilot),

@@ -30,6 +30,7 @@ public class PilotDefinition
     {
         return new Pilot
         {
+            Id = Id,
             Name = Name,
             Rank = Rank,
             StaminaMax = StaminaMax,
