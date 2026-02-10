@@ -1,9 +1,18 @@
+using DeepSpaceGladiatorsEngine.Models;
+
 namespace DeepSpaceGladiators.UI.Screens
 {
     public partial class ScreenGameBoard : Form
     {
-        public ScreenGameBoard()
+        public BattleState BattleState { get; }
+
+        public ScreenGameBoard() : this(BattleState.CreateDefault())
         {
+        }
+
+        public ScreenGameBoard(BattleState battleState)
+        {
+            BattleState = battleState ?? throw new ArgumentNullException(nameof(battleState));
             InitializeComponent();
             KeyDown += ScreenGameBoard_KeyDown;
         }

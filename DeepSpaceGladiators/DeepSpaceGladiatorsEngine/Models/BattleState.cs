@@ -1,19 +1,13 @@
 namespace DeepSpaceGladiatorsEngine.Models;
 
-/// <summary>Full battle state: ships, pilots, phase, turn number, winner, and current turn (hands, planned cards).</summary>
+/// <summary>Full battle state: sides (ship + pilot each), phase, turn number, winner, and current turn (hands, planned cards).</summary>
 public class BattleState
 {
-    /// <summary>Player's ship.</summary>
-    public Ship PlayerShip { get; set; } = null!;
+    /// <summary>Player side (ship and pilot).</summary>
+    public SideState Player { get; set; } = null!;
 
-    /// <summary>Player's pilot.</summary>
-    public Pilot PlayerPilot { get; set; } = null!;
-
-    /// <summary>Opponent's ship.</summary>
-    public Ship OpponentShip { get; set; } = null!;
-
-    /// <summary>Opponent's pilot.</summary>
-    public Pilot OpponentPilot { get; set; } = null!;
+    /// <summary>Opponent side (ship and pilot).</summary>
+    public SideState Opponent { get; set; } = null!;
 
     /// <summary>Current turn number (1-based).</summary>
     public int CurrentTurnNumber { get; set; }
@@ -27,9 +21,24 @@ public class BattleState
     /// <summary>Current turn state: hands, planned cards, applied maneuvers per side.</summary>
     public TurnState Turn { get; } = new();
 
+    /// <summary>Get side state for the given side.</summary>
+    public SideState GetSide(Side side) => side == Side.Player ? Player : Opponent;
+
     /// <summary>Get ship for the given side.</summary>
-    public Ship GetShip(Side side) => side == Side.Player ? PlayerShip : OpponentShip;
+    public Ship GetShip(Side side) => GetSide(side).Ship;
 
     /// <summary>Get pilot for the given side.</summary>
-    public Pilot GetPilot(Side side) => side == Side.Player ? PlayerPilot : OpponentPilot;
+    public Pilot GetPilot(Side side) => GetSide(side).Pilot;
+
+    /// <summary>Creates a default battle state: player Duelist vs opponent Bruiser, turn 1, Planning phase.</summary>
+    public static BattleState CreateDefault()
+    {
+        return new BattleState
+        {
+            Player = SideState.Create(ShipTemplateId.Duelist),
+            Opponent = SideState.Create(ShipTemplateId.Bruiser),
+            CurrentTurnNumber = 1,
+            Phase = BattlePhase.Planning
+        };
+    }
 }
