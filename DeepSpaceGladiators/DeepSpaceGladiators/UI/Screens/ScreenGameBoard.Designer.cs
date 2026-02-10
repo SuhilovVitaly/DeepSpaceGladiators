@@ -37,16 +37,16 @@ namespace DeepSpaceGladiators.UI.Screens
             PlayerPilot.BackColor = Color.WhiteSmoke;
             PlayerPilot.Location = new Point(12, 12);
             PlayerPilot.Name = "PlayerPilot";
-            PlayerPilot.Size = new Size(341, 305);
+            PlayerPilot.Size = new Size(273, 244);
             PlayerPilot.TabIndex = 0;
             // 
             // ComputerPilot
             // 
             ComputerPilot.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ComputerPilot.BackColor = Color.WhiteSmoke;
-            ComputerPilot.Location = new Point(1567, 12);
+            ComputerPilot.Location = new Point(1635, 12);
             ComputerPilot.Name = "ComputerPilot";
-            ComputerPilot.Size = new Size(341, 305);
+            ComputerPilot.Size = new Size(273, 244);
             ComputerPilot.TabIndex = 1;
             // 
             // ScreenGameBoard
