@@ -4,6 +4,9 @@
     <Compile Update="UI\Screens\ScreenBackground.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\Screens\ScreenGameBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\Screens\ScreenMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

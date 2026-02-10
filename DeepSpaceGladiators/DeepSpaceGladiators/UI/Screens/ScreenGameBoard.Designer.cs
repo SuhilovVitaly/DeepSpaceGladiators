@@ -1,14 +1,14 @@
-namespace DeepSpaceGladiators
+namespace DeepSpaceGladiators.UI.Screens
 {
-    partial class ScreenBackground
+    partial class ScreenGameBoard
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,26 +23,24 @@ namespace DeepSpaceGladiators
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             SuspendLayout();
             // 
-            // ScreenBackground
+            // ScreenGameBoard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Black;
-            ClientSize = new Size(2000, 1084);
+            BackColor = Color.DimGray;
+            ClientSize = new Size(1523, 897);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "ScreenBackground";
-            ShowInTaskbar = true;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Deep Space Gladiators";
-            WindowState = FormWindowState.Maximized;
+            Name = "ScreenGameBoard";
+            ShowInTaskbar = false;
+            Text = "ScreenGameBoard";
             ResumeLayout(false);
         }
 

@@ -1,4 +1,4 @@
-﻿namespace DeepSpaceGladiators.UI.Screens
+namespace DeepSpaceGladiators.UI.Screens
 {
     partial class ScreenMainMenu
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             ButtonExit = new Button();
+            ButtonNewGame = new Button();
             SuspendLayout();
             // 
             // ButtonExit
@@ -49,17 +50,37 @@
             ButtonExit.UseVisualStyleBackColor = false;
             ButtonExit.Click += Event_ExitGame;
             // 
+            // ButtonNewGame
+            // 
+            ButtonNewGame.BackColor = Color.SeaShell;
+            ButtonNewGame.Cursor = Cursors.Hand;
+            ButtonNewGame.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            ButtonNewGame.FlatAppearance.MouseDownBackColor = Color.SeaShell;
+            ButtonNewGame.FlatAppearance.MouseOverBackColor = Color.DarkKhaki;
+            ButtonNewGame.FlatStyle = FlatStyle.Flat;
+            ButtonNewGame.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonNewGame.ForeColor = Color.Black;
+            ButtonNewGame.Location = new Point(274, 82);
+            ButtonNewGame.Name = "ButtonNewGame";
+            ButtonNewGame.Size = new Size(233, 65);
+            ButtonNewGame.TabIndex = 0;
+            ButtonNewGame.Text = "EXIT";
+            ButtonNewGame.UseVisualStyleBackColor = false;
+            ButtonNewGame.Click += Event_NewGame;
+            // 
             // ScreenMainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(800, 450);
+            Controls.Add(ButtonNewGame);
             Controls.Add(ButtonExit);
             DoubleBuffered = true;
             ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.None;
             Name = "ScreenMainMenu";
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "ScreenMainMenu";
             ResumeLayout(false);
@@ -68,5 +89,6 @@
         #endregion
 
         private Button ButtonExit;
+        private Button ButtonNewGame;
     }
 }

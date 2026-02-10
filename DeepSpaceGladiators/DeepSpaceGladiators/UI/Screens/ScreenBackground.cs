@@ -13,7 +13,13 @@ namespace DeepSpaceGladiators
         private void ScreenBackground_Load(object? sender, EventArgs e)
         {
             using var mainMenu = new ScreenMainMenu();
-            mainMenu.ShowDialog(this);
+            if (mainMenu.ShowDialog(this) == DialogResult.OK)
+            {
+                using var gameBoard = new ScreenGameBoard();
+                gameBoard.StartPosition = FormStartPosition.Manual;
+                gameBoard.Bounds = RectangleToScreen(ClientRectangle);
+                gameBoard.ShowDialog(this);
+            }
         }
     }
 }
