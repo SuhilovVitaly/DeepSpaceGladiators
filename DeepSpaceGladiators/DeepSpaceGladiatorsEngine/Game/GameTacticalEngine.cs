@@ -4,7 +4,7 @@ using DeepSpaceGladiatorsEngine.Models;
 namespace DeepSpaceGladiatorsEngine.Game;
 
 /// <summary>Battle business logic engine. Handles turn execution, damage resolution, and win conditions.</summary>
-public class GameTacticalEngine
+public class GameTacticalEngine: ITacticalEngine
 {
     private readonly BattleState _state;
 

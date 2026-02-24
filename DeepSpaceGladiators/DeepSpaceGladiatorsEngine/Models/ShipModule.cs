@@ -8,6 +8,7 @@ public class ShipModule
 
     /// <summary>Whether the module is online (not disabled).</summary>
     public bool IsOnline { get; set; }
+    public List<IGameCard> Cards { get; set; }  
 
     /// <summary>Create a module by type, online by default.</summary>
     public ShipModule(ShipModuleType type, bool isOnline = true)
@@ -15,7 +16,4 @@ public class ShipModule
         Type = type;
         IsOnline = isOnline;
     }
-
-    /// <summary>Factory: create a module by type.</summary>
-    public static ShipModule Create(ShipModuleType type, bool isOnline = true) => new ShipModule(type, isOnline);
 }

@@ -1,3 +1,5 @@
+using DeepSpaceGladiatorsEngine.Game.Generation;
+
 namespace DeepSpaceGladiatorsEngine.Models;
 
 /// <summary>Full battle state: sides (ship + pilot each), phase, turn number, winner, and current turn (hands, planned cards).</summary>
@@ -38,8 +40,8 @@ public class BattleState
 
         return new BattleState
         {
-            Player = SideState.Create(ShipTemplateId.Duelist, playerPilot),
-            Opponent = SideState.Create(ShipTemplateId.Bruiser, opponentPilot),
+            Player = SideState.Create(GenerationConstants.DefaultShip, playerPilot),
+            Opponent = SideState.Create(GenerationConstants.DefaultShip, opponentPilot),
             CurrentTurnNumber = 1,
             Phase = BattlePhase.Planning
         };

@@ -1,3 +1,5 @@
+using DeepSpaceGladiatorsEngine.Game.Generation;
+
 namespace DeepSpaceGladiatorsEngine.Models;
 
 /// <summary>One side in battle: ship and pilot.</summary>
@@ -10,21 +12,21 @@ public class SideState
     public Pilot Pilot { get; set; } = null!;
 
     /// <summary>Creates a side with ship from template and default pilot (full stamina).</summary>
-    public static SideState Create(ShipTemplateId shipTemplateId)
+    public static SideState Create(string shipTemplateId)
     {
         return new SideState
         {
-            Ship = ShipTemplate.CreateShip(shipTemplateId),
+            Ship = ShipGeneration.Generate(shipTemplateId),
             Pilot = new Pilot { StaminaMax = GameConstants.StaminaMax, StaminaCurrent = GameConstants.StaminaMax }
         };
     }
 
     /// <summary>Creates a side with ship from template and the given pilot.</summary>
-    public static SideState Create(ShipTemplateId shipTemplateId, Pilot pilot)
+    public static SideState Create(string shipTemplateId, Pilot pilot)
     {
         return new SideState
         {
-            Ship = ShipTemplate.CreateShip(shipTemplateId),
+            Ship = ShipGeneration.Generate(shipTemplateId),
             Pilot = pilot ?? throw new ArgumentNullException(nameof(pilot))
         };
     }

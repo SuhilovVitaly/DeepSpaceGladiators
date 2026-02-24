@@ -1,4 +1,5 @@
 using DeepSpaceGladiatorsEngine.Game;
+using DeepSpaceGladiatorsEngine.Game.Generation;
 using DeepSpaceGladiatorsEngine.Models;
 
 namespace DeepSpaceGladiatorsTests;
@@ -16,8 +17,8 @@ public class BattleSimulationTests
 
         _battle = new BattleState
         {
-            Player = SideState.Create(ShipTemplateId.Duelist, playerPilot),
-            Opponent = SideState.Create(ShipTemplateId.Bruiser, opponentPilot),
+            Player = SideState.Create(GenerationConstants.DefaultShip, playerPilot),
+            Opponent = SideState.Create(GenerationConstants.DefaultShip, opponentPilot),
             CurrentTurnNumber = 1,
             Phase = BattlePhase.Planning
         };
