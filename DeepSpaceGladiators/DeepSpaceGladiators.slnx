@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="DeepSpaceGladiators/DeepSpaceGladiators.csproj" />
   <Project Path="DeepSpaceGladiatorsEngine/DeepSpaceGladiatorsEngine.csproj" Id="b41766c0-79a3-42b7-899a-8ca429595242" />
+  <Project Path="DeepSpaceGladiatorsTests/DeepSpaceGladiatorsTests.csproj" Id="4d6d2bf6-ceb9-4d58-8d60-18a02b6cfd85" />
 </Solution>

@@ -1,5 +1,3 @@
-using DeepSpaceGladiatorsEngine;
-
 namespace DeepSpaceGladiatorsEngine.Models;
 
 /// <summary>Full battle state: sides (ship + pilot each), phase, turn number, winner, and current turn (hands, planned cards).</summary>

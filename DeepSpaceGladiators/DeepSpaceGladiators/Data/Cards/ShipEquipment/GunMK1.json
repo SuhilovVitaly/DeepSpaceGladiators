@@ -1,0 +1,7 @@
+{
+  "id": "gun_mk1",
+  "name": "Gun MK I",
+  "cardType": "ShipEquipment",
+  "cost": 3,
+  "damage": 2
+}
