@@ -1,7 +1,7 @@
 namespace DeepSpaceGladiatorsEngine.Models;
 
 /// <summary>Base type for maneuver and action cards.</summary>
-public abstract class Card
+public abstract class Card : IGameCard
 {
     /// <summary>Unique card identifier.</summary>
     public string Id { get; }
@@ -14,6 +14,9 @@ public abstract class Card
 
     /// <summary>Description for UI.</summary>
     public string Description { get; }
+
+    /// <summary>Card source type (pilot skill or ship equipment).</summary>
+    public abstract CardType CardType { get; }
 
     protected Card(string id, string name, int cost, string description)
     {

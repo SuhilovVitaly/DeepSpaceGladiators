@@ -3,6 +3,9 @@ namespace DeepSpaceGladiatorsEngine.Models;
 /// <summary>Maneuver card with type for accuracy modifiers and effects.</summary>
 public class ManeuverCard : Card
 {
+    /// <inheritdoc />
+    public override CardType CardType => CardType.PilotSkill;
+
     /// <summary>Maneuver type (SteadyVector, EvasiveDrift, etc.).</summary>
     public ManeuverType ManeuverType { get; }
 

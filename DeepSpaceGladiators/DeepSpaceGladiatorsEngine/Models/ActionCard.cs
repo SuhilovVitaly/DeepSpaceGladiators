@@ -3,6 +3,9 @@ namespace DeepSpaceGladiatorsEngine.Models;
 /// <summary>Action card with type, accuracy and damage for resolve.</summary>
 public class ActionCard : Card
 {
+    /// <inheritdoc />
+    public override CardType CardType => CardType.PilotSkill;
+
     /// <summary>Action type (PulseShot, FocusedFire, etc.).</summary>
     public ActionType ActionType { get; }
 
