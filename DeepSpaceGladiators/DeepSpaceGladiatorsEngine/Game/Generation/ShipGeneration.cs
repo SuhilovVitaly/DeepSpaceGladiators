@@ -16,24 +16,29 @@ public static class ShipGeneration
     public static Ship Generate(string id)
     {
         var filePath = Path.Combine(GetShipsDirectory(), $"{id}.json");
-        var ship = LoadFromFile(filePath);
+        var shipData = LoadFromFile(filePath);
 
-        ship.ShieldCurrent = ship.ShieldMax;
-        ship.StructureCurrent = ship.StructureMax;
-        ship.Modules = new List<ShipModule>
-        {
-            ModuleGeneration.Generate(ShipModuleType.Weapon, ""),
-            ModuleGeneration.Generate(ShipModuleType.Engine, ""),
-            ModuleGeneration.Generate(ShipModuleType.ShieldGenerator, "")
-        };
+        var modules = shipData.Modules
+            .Select(moduleId => ModuleGeneration.Generate(moduleId))
+            .ToList();
+
+        var ship = new Ship(shipData.ShieldMax, shipData.StructureMax, modules);
 
         return ship;
     }
 
-    private static Ship LoadFromFile(string filePath)
+    private static ShipData LoadFromFile(string filePath)
     {
         using var stream = File.OpenRead(filePath);
-        return JsonSerializer.Deserialize<Ship>(stream, s_options)
+        return JsonSerializer.Deserialize<ShipData>(stream, s_options)
             ?? throw new InvalidOperationException($"Failed to deserialize ship from {filePath}.");
+    }
+
+    private class ShipData
+    {
+        public string Id { get; set; } = string.Empty;
+        public int ShieldMax { get; set; }
+        public int StructureMax { get; set; }
+        public List<string> Modules { get; set; } = [];
     }
 }

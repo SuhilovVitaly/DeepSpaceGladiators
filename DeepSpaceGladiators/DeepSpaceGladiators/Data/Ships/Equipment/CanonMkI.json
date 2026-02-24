@@ -1,0 +1,17 @@
+{
+  "moduleType": "Weapon",
+  "name": "Canon MkI",
+  "isOnline": true,
+  "cards": [
+    {
+      "$type": "ActionCard",
+      "id": "act_pulse",
+      "name": "Pulse Shot",
+      "cost": 1,
+      "description": "Light weapon shot.",
+      "actionType": "PulseShot",
+      "accuracyBase": 4,
+      "damage": 1
+    }
+  ]
+}

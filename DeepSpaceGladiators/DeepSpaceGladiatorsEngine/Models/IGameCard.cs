@@ -1,6 +1,11 @@
+using System.Text.Json.Serialization;
+
 namespace DeepSpaceGladiatorsEngine.Models;
 
 /// <summary>Game card interface.</summary>
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "$type")]
+[JsonDerivedType(typeof(ActionCard), "ActionCard")]
+[JsonDerivedType(typeof(ManeuverCard), "ManeuverCard")]
 public interface IGameCard
 {
     /// <summary>Unique card identifier.</summary>

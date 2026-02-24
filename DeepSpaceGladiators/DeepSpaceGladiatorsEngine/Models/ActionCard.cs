@@ -7,13 +7,17 @@ public class ActionCard : Card
     public override CardType CardType => CardType.PilotSkill;
 
     /// <summary>Action type (PulseShot, FocusedFire, etc.).</summary>
-    public ActionType ActionType { get; }
+    public ActionType ActionType { get; set; }
 
     /// <summary>Base accuracy value for hit roll.</summary>
-    public int AccuracyBase { get; }
+    public int AccuracyBase { get; set; }
 
     /// <summary>Damage dealt on hit (0 for non-attack actions).</summary>
-    public int Damage { get; }
+    public int Damage { get; set; }
+
+    public ActionCard() : base()
+    {
+    }
 
     public ActionCard(string id, string name, int cost, string description, ActionType actionType, int accuracyBase, int damage)
         : base(id, name, cost, description)
