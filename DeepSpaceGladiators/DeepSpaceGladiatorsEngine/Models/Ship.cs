@@ -16,7 +16,12 @@ public class Ship
     public int StructureCurrent { get; set; }
 
     /// <summary>Three modules in order: Weapon, Engine, ShieldGenerator.</summary>
-    public IReadOnlyList<ShipModule> Modules { get; }
+    public IReadOnlyList<ShipModule> Modules { get; set; } = [];
+
+    /// <summary>Parameterless constructor for JSON deserialization.</summary>
+    public Ship()
+    {
+    }
 
     /// <summary>Create ship with given shield/structure and three modules.</summary>
     public Ship(int shieldMax, int structureMax, IReadOnlyList<ShipModule> modules)
