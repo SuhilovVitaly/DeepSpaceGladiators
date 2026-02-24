@@ -1,4 +1,3 @@
-using DeepSpaceGladiatorsEngine.Definitions;
 using DeepSpaceGladiatorsEngine.Game;
 using DeepSpaceGladiatorsEngine.Models;
 
@@ -8,8 +7,6 @@ public class BattleSimulationTests
 {
     private BattleState _battle = null!;
     private GameTacticalEngine _engine = null!;
-    private IReadOnlyList<ManeuverCard> _maneuverDeck = null!;
-    private IReadOnlyList<ActionCard> _actionDeck = null!;
 
     [SetUp]
     public void Setup()
@@ -26,9 +23,6 @@ public class BattleSimulationTests
         };
 
         _engine = new GameTacticalEngine(_battle);
-
-        _maneuverDeck = CardDefinitions.GetManeuverDeck();
-        _actionDeck = CardDefinitions.GetActionDeck();
     }
 
     [Test]
@@ -43,13 +37,12 @@ public class BattleSimulationTests
         Assert.That(_battle.Opponent.Pilot.Name, Is.EqualTo("AI Basic"));
         Assert.That(_battle.Opponent.Ship.ShieldMax, Is.EqualTo(GameConstants.BruiserShieldMax));
 
-        DealCards(Side.Player);
-        DealCards(Side.Opponent);
+        _engine.StartTurn();
 
-        Assert.That(_battle.Turn.Player.HandManeuvers.Count, Is.EqualTo(3));
-        Assert.That(_battle.Turn.Player.HandActions.Count, Is.EqualTo(3));
-        Assert.That(_battle.Turn.Opponent.HandManeuvers.Count, Is.EqualTo(3));
-        Assert.That(_battle.Turn.Opponent.HandActions.Count, Is.EqualTo(3));
+        Assert.That(_battle.Turn.Player.HandManeuvers.Count, Is.EqualTo(5));
+        Assert.That(_battle.Turn.Player.HandActions.Count, Is.EqualTo(5));
+        Assert.That(_battle.Turn.Opponent.HandManeuvers.Count, Is.EqualTo(5));
+        Assert.That(_battle.Turn.Opponent.HandActions.Count, Is.EqualTo(5));
 
         PlanCards(Side.Player, maneuverIndex: 0, actionIndex: 0);
         PlanCards(Side.Opponent, maneuverIndex: 1, actionIndex: 1);
@@ -75,17 +68,6 @@ public class BattleSimulationTests
             StaminaMax = GameConstants.StaminaMax,
             StaminaCurrent = GameConstants.StaminaMax
         };
-    }
-
-    private void DealCards(Side side)
-    {
-        var turnData = _battle.Turn.GetSide(side);
-
-        turnData.HandManeuversMutable.Clear();
-        turnData.HandManeuversMutable.AddRange(_maneuverDeck.Take(3));
-
-        turnData.HandActionsMutable.Clear();
-        turnData.HandActionsMutable.AddRange(_actionDeck.Take(3));
     }
 
     private void PlanCards(Side side, int maneuverIndex, int actionIndex)

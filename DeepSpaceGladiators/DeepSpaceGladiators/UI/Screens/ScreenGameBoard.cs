@@ -1,3 +1,4 @@
+using DeepSpaceGladiatorsEngine.Game;
 using DeepSpaceGladiatorsEngine.Models;
 
 namespace DeepSpaceGladiators.UI.Screens
@@ -5,6 +6,7 @@ namespace DeepSpaceGladiators.UI.Screens
     public partial class ScreenGameBoard : Form
     {
         public BattleState BattleState { get; }
+        public GameTacticalEngine Engine { get; }
 
         public ScreenGameBoard() : this(BattleState.CreateDefault())
         {
@@ -13,6 +15,7 @@ namespace DeepSpaceGladiators.UI.Screens
         public ScreenGameBoard(BattleState battleState)
         {
             BattleState = battleState ?? throw new ArgumentNullException(nameof(battleState));
+            Engine = new GameTacticalEngine(BattleState);
             InitializeComponent();
             Load += ScreenGameBoard_Load;
             KeyDown += ScreenGameBoard_KeyDown;

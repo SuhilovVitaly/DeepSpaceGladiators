@@ -1,3 +1,4 @@
+using DeepSpaceGladiatorsEngine.Definitions;
 using DeepSpaceGladiatorsEngine.Models;
 
 namespace DeepSpaceGladiatorsEngine.Game;
@@ -14,6 +15,24 @@ public class GameTacticalEngine
 
     /// <summary>Current battle state.</summary>
     public BattleState State => _state;
+
+    /// <summary>Starts a new turn: deals all available cards to both sides.</summary>
+    public void StartTurn()
+    {
+        DealCards(Side.Player);
+        DealCards(Side.Opponent);
+    }
+
+    private void DealCards(Side side)
+    {
+        var turnData = _state.Turn.GetSide(side);
+
+        turnData.HandManeuversMutable.Clear();
+        turnData.HandManeuversMutable.AddRange(CardDefinitions.GetManeuverDeck());
+
+        turnData.HandActionsMutable.Clear();
+        turnData.HandActionsMutable.AddRange(CardDefinitions.GetActionDeck());
+    }
 
     /// <summary>Executes the current turn: resolves maneuvers and actions for both sides, checks win condition, and advances to next turn.</summary>
     public void ExecuteTurn()
